@@ -153,6 +153,27 @@ body.qv-open #site-header {
   color: #ffffff;
 }
 
+/* ── Fullscreen menu links: no separators; on hover a line grows from the
+   center to 30% width; the active item keeps it ── */
+.menu-link {
+  position: relative;
+}
+.menu-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  height: 2px;
+  width: 0;
+  background: currentColor;
+  transform: translateX(-50%);
+  transition: width 0.35s cubic-bezier(0.3, 0, 0.2, 1);
+}
+.menu-link:hover::after,
+.menu-link.is-active::after {
+  width: 30%;
+}
+
 /* ── FAQ: closed items stay light, open items flip to black + white type ── */
 .faq-list details[open] {
   --color-ink: #ffffff;
