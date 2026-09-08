@@ -12,6 +12,7 @@ export const SITE = {
   logoLight: '/logo/njx-shop-light.png', // light mark — shown on the dark theme
   repoUrl: 'https://github.com/njbSaab/astro-njx-dark-lux',
   authorUrl: 'https://njxui.dev',
+  themesUrl: 'https://njxui.dev/themes',
 } as const;
 
 export const ANNOUNCEMENT = {
@@ -70,6 +71,7 @@ export const FOOTER = {
     {
       title: 'Theme',
       links: [
+        { label: 'All themes & Pro', href: SITE.themesUrl },
         { label: 'GitHub', href: SITE.repoUrl },
         { label: 'Made by njX', href: SITE.authorUrl },
         { label: 'Built with Astro', href: 'https://astro.build' },
@@ -91,6 +93,8 @@ export const THANKS_MODAL = {
   keepLabel: 'Keep browsing',
   madeByLabel: 'njX UI',
   madeByHref: SITE.authorUrl,
+  moreLabel: 'More themes & Pro →',
+  moreHref: SITE.themesUrl,
 } as const;
 
 export const CART = {
