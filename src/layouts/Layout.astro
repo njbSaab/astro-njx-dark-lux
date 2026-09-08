@@ -89,7 +89,7 @@ const searchIndex = JSON.stringify(
     <header id="site-header" class:list={['sticky top-0 z-40 w-full transition-colors duration-300', overlayHeader ? 'header-overlay' : 'is-solid']}>
       <div>
       <nav class="mx-auto grid h-[76px] max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-4 px-3 sm:px-5">
-        <a href="/" class="flex items-center gap-2.5 justify-self-start font-bold uppercase tracking-[0.32em] text-[17px]">
+        <a href="/" class="flex items-center gap-2.5 justify-self-start font-bold tracking-[0.32em] text-[17px]">
           <img src={SITE.logoLight} alt="" class="h-8 w-8 rounded-md" />
           {SITE.name}
         </a>
@@ -128,24 +128,23 @@ const searchIndex = JSON.stringify(
           </button>
         </div>
       </nav>
-      <!-- search panel -->
-      <div id="search-panel" class="hidden border-t border-line bg-paper">
-        <div class="mx-auto max-w-6xl px-5 py-4">
-          <div class="flex items-center gap-3 rounded-md border border-line px-4 focus-within:border-brand">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="shrink-0 text-muted">
-              <circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" />
-            </svg>
-            <input
-              id="search-input"
-              type="search"
-              placeholder={SEARCH.placeholder}
-              class="w-full bg-transparent py-3 text-[15px] outline-none placeholder:text-muted"
-              autocomplete="off"
-            />
-            <kbd class="hidden rounded border border-line px-1.5 py-0.5 text-[11px] text-muted sm:block">{SEARCH.escHint}</kbd>
+      <!-- search panel: style-book — dark glass, giant underlined input,
+           result rows [thumb | category+name | price] that open the quick view -->
+      <div id="search-panel" class="hidden border-t border-white/10 bg-black/90 text-white backdrop-blur-md">
+        <div class="mx-auto max-w-4xl px-5 pb-12 pt-10">
+          <input
+            id="search-input"
+            type="search"
+            placeholder={SEARCH.placeholder}
+            class="w-full border-b border-white bg-transparent pb-2 text-[clamp(22px,4vw,34px)] font-light tracking-[0.02em] outline-none placeholder:text-white/35"
+            autocomplete="off"
+          />
+          <div class="mt-3.5 flex justify-between text-[12px] uppercase tracking-[0.18em] text-white/60">
+            <span id="search-hint"></span>
+            <span>{SEARCH.escHint} to close</span>
           </div>
-          <div id="search-results" class="hidden gap-4 py-5 sm:grid-cols-4"></div>
-          <p id="search-empty" class="hidden py-6 text-center text-[14px] text-muted">{SEARCH.emptyText}</p>
+          <div id="search-results" class="mt-7 hidden grid-cols-[repeat(auto-fill,minmax(260px,1fr))] gap-0.5"></div>
+          <p id="search-empty" class="hidden py-6 text-center text-[14px] text-white/60">{SEARCH.emptyText}</p>
         </div>
       </div>
     </header>
@@ -158,7 +157,7 @@ const searchIndex = JSON.stringify(
       <div class="mx-auto max-w-6xl">
       <div class="grid gap-8 px-5 py-8 sm:grid-cols-[1.2fr_1fr] sm:gap-10 sm:px-10 sm:py-12">
         <div>
-          <p class="flex items-center gap-2 font-display text-xl font-bold"><img src={SITE.logoDark} alt="" class="logo-on-light h-7 w-7 rounded-md" /><img src={SITE.logoLight} alt="" class="logo-on-dark h-7 w-7 rounded-md" />{SITE.name}</p>
+          <p class="flex items-center gap-2 font-display text-xl font-bold tracking-[0.24em]"><img src={SITE.logoLight} alt="" class="h-7 w-7 rounded-md" />{SITE.name}</p>
           <p class="mt-3 max-w-[36ch] text-[14px] leading-relaxed text-muted">{FOOTER.tagline}</p>
         </div>
         <nav class="grid grid-cols-2 gap-8 text-[14px] sm:grid-cols-3" aria-label="Footer">
@@ -306,7 +305,7 @@ const searchIndex = JSON.stringify(
     <aside id="nav-drawer" class="fixed inset-0 z-50 flex flex-col overflow-hidden bg-paper" aria-label={NAV_DRAWER.ariaDrawer}>
       <div class="border-b border-line">
         <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5">
-          <h2 class="flex items-center gap-2.5 font-display text-[22px] font-bold uppercase tracking-[0.32em]"><img src={SITE.logoLight} alt="" class="h-8 w-8 rounded-md" />{SITE.name}</h2>
+          <h2 class="flex items-center gap-2.5 font-display text-[22px] font-bold tracking-[0.32em]"><img src={SITE.logoLight} alt="" class="h-8 w-8 rounded-md" />{SITE.name}</h2>
           <button id="nav-close" class="p-2 text-muted transition hover:bg-tile hover:text-ink" aria-label={NAV_DRAWER.ariaClose}>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
           </button>
@@ -438,24 +437,35 @@ const searchIndex = JSON.stringify(
       function renderSearch(q: string) {
         // empty query — show the whole catalog
         const hits = q
-          ? index.filter((p) => (p.title + ' ' + p.tags).toLowerCase().includes(q)).slice(0, 8)
+          ? index.filter((p) => (p.title + ' ' + p.tags).toLowerCase().includes(q)).slice(0, 12)
           : index;
+        const hint = document.getElementById('search-hint');
+        if (hint) hint.textContent = q ? `${hits.length} result${hits.length === 1 ? '' : 's'}` : 'Type to filter the catalog';
         searchEmpty.classList.toggle('hidden', hits.length > 0);
         searchResults.classList.toggle('hidden', hits.length === 0);
         searchResults.classList.toggle('grid', hits.length > 0);
         searchResults.innerHTML = hits
           .map(
             (p) => `
-            <a href="/products/${p.handle}" class="group flex items-center gap-3 rounded-md p-2 hover:bg-tile">
-              <img src="${p.image}" alt="" class="h-14 w-14 rounded-md bg-tile object-cover"/>
+            <button type="button" data-search-qv="${p.handle}" class="grid grid-cols-[56px_1fr_auto] items-center gap-4 border border-white/10 p-2.5 pr-3.5 text-left text-white transition hover:border-white">
+              <img src="${p.image}" alt="" class="h-14 w-14 object-cover"/>
               <span class="min-w-0">
-                <span class="block truncate text-[14px] font-medium group-hover:underline group-hover:underline-offset-4">${p.title}</span>
-                <span class="text-[13px] text-muted">$${p.price}</span>
+                <span class="block text-[11px] uppercase tracking-[0.18em] text-white/60">${p.tags.split(' ')[0] ?? ''}</span>
+                <span class="block truncate text-[15px] font-medium">${p.title}</span>
               </span>
-            </a>`,
+              <span class="text-[15px]">$${p.price}</span>
+            </button>`,
           )
           .join('');
       }
+
+      // search result → quick view (style-book behaviour)
+      searchResults.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-search-qv]');
+        if (!btn) return;
+        toggleSearch(false);
+        openQuickview(btn.dataset.searchQv!);
+      });
 
       function toggleSearch(show?: boolean) {
         const willShow = show ?? searchPanel.classList.contains('hidden');
