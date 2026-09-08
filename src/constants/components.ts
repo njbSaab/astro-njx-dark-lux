@@ -18,7 +18,7 @@ export const ANNOUNCEMENT = {
   text: 'Free shipping over $50 · −10% on your first order with code',
   promoCode: 'NOCTA10',
   copiedLabel: 'Copied ✓',
-  linkLabel: 'Star the theme on GitHub',
+  linkLabel: 'If you star the theme, I’ll be happy ♡',
   linkHref: SITE.repoUrl,
 } as const;
 
