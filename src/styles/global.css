@@ -237,6 +237,19 @@ input[type='radio'] {
   }
 }
 
+/* Search open: lock page scroll and dim everything behind the header */
+body.search-open {
+  overflow: hidden;
+}
+body.search-open::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
 /* Cart drawer & fullscreen menu open state */
 body.cart-open,
 body.nav-open {

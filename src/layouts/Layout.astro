@@ -130,7 +130,7 @@ const searchIndex = JSON.stringify(
       </nav>
       <!-- search panel: style-book — dark glass, giant underlined input,
            result rows [thumb | category+name | price] that open the quick view -->
-      <div id="search-panel" class="hidden border-t border-white/10 bg-black/90 text-white backdrop-blur-md">
+      <div id="search-panel" class="hidden max-h-[calc(100dvh-120px)] overflow-y-auto overscroll-contain border-t border-white/10 bg-black/90 text-white backdrop-blur-md">
         <div class="mx-auto max-w-4xl px-5 pb-12 pt-10">
           <input
             id="search-input"
@@ -470,6 +470,7 @@ const searchIndex = JSON.stringify(
       function toggleSearch(show?: boolean) {
         const willShow = show ?? searchPanel.classList.contains('hidden');
         searchPanel.classList.toggle('hidden', !willShow);
+        document.body.classList.toggle('search-open', willShow);
         $('search-button').setAttribute('aria-expanded', String(willShow));
         if (willShow) {
           renderSearch(searchInput.value.trim().toLowerCase());
@@ -477,6 +478,11 @@ const searchIndex = JSON.stringify(
         }
       }
       $('search-button').addEventListener('click', () => toggleSearch());
+      // click on the dimmed page closes the search
+      document.addEventListener('click', (e) => {
+        if (!document.body.classList.contains('search-open')) return;
+        if (!(e.target as HTMLElement).closest('#site-header')) toggleSearch(false);
+      });
       searchInput.addEventListener('input', () => renderSearch(searchInput.value.trim().toLowerCase()));
 
 
