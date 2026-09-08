@@ -1,0 +1,609 @@
+{
+  "collections": [
+    {
+      "id": "c1",
+      "handle": "coffee",
+      "title": "Premium Coffee",
+      "description": "Small-batch beans, roasted this week and sealed at peak aroma."
+    },
+    {
+      "id": "c2",
+      "handle": "creamers",
+      "title": "Premium Creamers",
+      "description": "Barista-grade creamers that steam, foam and never split."
+    },
+    {
+      "id": "c3",
+      "handle": "merch",
+      "title": "Merch & Objects",
+      "description": "Stoneware, waxed canvas and objects that live next to the machine."
+    },
+    {
+      "id": "c4",
+      "handle": "gear",
+      "title": "Brewing Devices",
+      "description": "Grinders, kettles and kits — the hardware behind a serious cup."
+    },
+    {
+      "id": "c5",
+      "handle": "capsules",
+      "title": "Capsules",
+      "description": "Our roast profiles, sealed in recyclable aluminium."
+    },
+    {
+      "id": "c6",
+      "handle": "gifts",
+      "title": "Gift Sets",
+      "description": "Boxed combinations that make you look like you tried very hard."
+    }
+  ],
+  "products": [
+    {
+      "id": "p1",
+      "handle": "midnight-espresso",
+      "title": "Midnight Espresso",
+      "description": "A blood-dark blend of Brazilian and Ethiopian beans, roasted past the second crack for a crema that holds a spoon. Chocolate, black cherry, no apologies.",
+      "images": [
+        {
+          "src": "/products/midnight-espresso.jpg",
+          "alt": "Midnight Espresso"
+        }
+      ],
+      "price": {
+        "amount": 18,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p1v1",
+          "title": "250 g",
+          "price": {
+            "amount": 18,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p1v2",
+          "title": "500 g",
+          "price": {
+            "amount": 18,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p1v3",
+          "title": "1 kg",
+          "price": {
+            "amount": 18,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "espresso",
+        "dark-roast"
+      ],
+      "collectionHandles": [
+        "coffee"
+      ],
+      "meta": {
+        "origin": "Brazil · Ethiopia",
+        "notes": "Chocolate, black cherry",
+        "format": "Whole bean"
+      }
+    },
+    {
+      "id": "p2",
+      "handle": "velvet-lungo",
+      "title": "Velvet Lungo",
+      "description": "A long, silky cup built on washed Colombian lots. Caramel sweetness up front, toasted hazelnut underneath — the everyday luxury cup.",
+      "images": [
+        {
+          "src": "/products/velvet-lungo.jpg",
+          "alt": "Velvet Lungo"
+        }
+      ],
+      "price": {
+        "amount": 16,
+        "currency": "USD"
+      },
+      "compareAtPrice": {
+        "amount": 20,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p2v1",
+          "title": "250 g",
+          "price": {
+            "amount": 16,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p2v2",
+          "title": "500 g",
+          "price": {
+            "amount": 16,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p2v3",
+          "title": "1 kg",
+          "price": {
+            "amount": 16,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "lungo",
+        "medium-roast",
+        "sale"
+      ],
+      "collectionHandles": [
+        "coffee"
+      ],
+      "meta": {
+        "origin": "Colombia",
+        "notes": "Caramel, hazelnut",
+        "format": "Whole bean"
+      }
+    },
+    {
+      "id": "p3",
+      "handle": "single-origin-yirgacheffe",
+      "title": "Yirgacheffe Single Origin",
+      "description": "One farm, one harvest, one roast profile. Bergamot and apricot brightness that makes filter coffee feel like an occasion.",
+      "images": [
+        {
+          "src": "/products/single-origin-yirgacheffe.jpg",
+          "alt": "Yirgacheffe Single Origin"
+        }
+      ],
+      "price": {
+        "amount": 22,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p3v1",
+          "title": "250 g",
+          "price": {
+            "amount": 22,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p3v2",
+          "title": "500 g",
+          "price": {
+            "amount": 22,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p3v3",
+          "title": "1 kg",
+          "price": {
+            "amount": 22,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "single-origin",
+        "light-roast"
+      ],
+      "collectionHandles": [
+        "coffee"
+      ],
+      "meta": {
+        "origin": "Ethiopia, Yirgacheffe",
+        "notes": "Bergamot, apricot",
+        "format": "Whole bean"
+      }
+    },
+    {
+      "id": "p4",
+      "handle": "oat-cloud-creamer",
+      "title": "Oat Cloud Creamer",
+      "description": "Barista-grade oat creamer that steams into a dense microfoam and never splits in hot coffee. Quietly sweet, nothing artificial.",
+      "images": [
+        {
+          "src": "/products/oat-cloud-creamer.jpg",
+          "alt": "Oat Cloud Creamer"
+        }
+      ],
+      "price": {
+        "amount": 9,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p4v1",
+          "title": "6-pack",
+          "price": {
+            "amount": 9,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p4v2",
+          "title": "12-pack",
+          "price": {
+            "amount": 9,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "oat",
+        "barista"
+      ],
+      "collectionHandles": [
+        "creamers"
+      ],
+      "meta": {
+        "origin": "Sweden",
+        "notes": "Quietly sweet",
+        "format": "6 × 500 ml"
+      }
+    },
+    {
+      "id": "p5",
+      "handle": "vanilla-bean-creamer",
+      "title": "Vanilla Bean Creamer",
+      "description": "Real Madagascar vanilla folded into double cream. A dessert disguised as a splash.",
+      "images": [
+        {
+          "src": "/products/vanilla-bean-creamer.jpg",
+          "alt": "Vanilla Bean Creamer"
+        }
+      ],
+      "price": {
+        "amount": 11,
+        "currency": "USD"
+      },
+      "compareAtPrice": {
+        "amount": 14,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p5v1",
+          "title": "6-pack",
+          "price": {
+            "amount": 11,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p5v2",
+          "title": "12-pack",
+          "price": {
+            "amount": 11,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "vanilla",
+        "sale"
+      ],
+      "collectionHandles": [
+        "creamers"
+      ],
+      "meta": {
+        "origin": "Madagascar vanilla",
+        "notes": "Dessert-adjacent",
+        "format": "6 × 500 ml"
+      }
+    },
+    {
+      "id": "p6",
+      "handle": "roast-mug",
+      "title": "The Roast Mug",
+      "description": "Stoneware, 350 ml, matte espresso glaze with a raw clay base. Keeps heat like it means it.",
+      "images": [
+        {
+          "src": "/products/roast-mug.jpg",
+          "alt": "The Roast Mug"
+        }
+      ],
+      "price": {
+        "amount": 24,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p6v1",
+          "title": "Default",
+          "price": {
+            "amount": 24,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "stoneware",
+        "gift"
+      ],
+      "collectionHandles": [
+        "merch"
+      ],
+      "meta": {
+        "origin": "Stoneware",
+        "notes": "Matte glaze",
+        "format": "350 ml"
+      }
+    },
+    {
+      "id": "p7",
+      "handle": "barista-apron",
+      "title": "Barista Apron",
+      "description": "Waxed canvas with leather straps, three pockets sized for a tamper, a cloth and a phone. Ages like a workshop bench.",
+      "images": [
+        {
+          "src": "/products/barista-apron.jpg",
+          "alt": "Barista Apron"
+        }
+      ],
+      "price": {
+        "amount": 48,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p7v1",
+          "title": "Default",
+          "price": {
+            "amount": 48,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "canvas",
+        "gift"
+      ],
+      "collectionHandles": [
+        "merch"
+      ],
+      "meta": {
+        "origin": "Waxed canvas",
+        "notes": "Leather straps",
+        "format": "One size"
+      }
+    },
+    {
+      "id": "p8",
+      "handle": "precision-grinder",
+      "title": "Precision Hand Grinder",
+      "description": "48 mm steel burrs, 40 click-stops from Turkish to French press. The upgrade that changes every cup after it.",
+      "images": [
+        {
+          "src": "/products/precision-grinder.jpg",
+          "alt": "Precision Hand Grinder"
+        }
+      ],
+      "price": {
+        "amount": 139,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p8v1",
+          "title": "Default",
+          "price": {
+            "amount": 139,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "grinder",
+        "steel"
+      ],
+      "collectionHandles": [
+        "gear"
+      ],
+      "meta": {
+        "origin": "48 mm steel burrs",
+        "notes": "40 click-stops",
+        "format": "Hand grinder"
+      }
+    },
+    {
+      "id": "p9",
+      "handle": "pour-over-kit",
+      "title": "Pour-Over Kit",
+      "description": "Double-wall glass dripper, server and 40 filters. Everything the slow morning needs in one box.",
+      "images": [
+        {
+          "src": "/products/pour-over-kit.jpg",
+          "alt": "Pour-Over Kit"
+        }
+      ],
+      "price": {
+        "amount": 54,
+        "currency": "USD"
+      },
+      "compareAtPrice": {
+        "amount": 68,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p9v1",
+          "title": "Default",
+          "price": {
+            "amount": 54,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "pour-over",
+        "glass",
+        "sale"
+      ],
+      "collectionHandles": [
+        "gear"
+      ],
+      "meta": {
+        "origin": "Borosilicate glass",
+        "notes": "Dripper + server",
+        "format": "V60-style"
+      }
+    },
+    {
+      "id": "p10",
+      "handle": "gooseneck-kettle",
+      "title": "Gooseneck Kettle",
+      "description": "600 ml, thermometer in the lid, a spout that pours exactly where you look. Stovetop and induction.",
+      "images": [
+        {
+          "src": "/products/gooseneck-kettle.jpg",
+          "alt": "Gooseneck Kettle"
+        }
+      ],
+      "price": {
+        "amount": 62,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p10v1",
+          "title": "Default",
+          "price": {
+            "amount": 62,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "kettle",
+        "steel"
+      ],
+      "collectionHandles": [
+        "gear"
+      ],
+      "meta": {
+        "origin": "Stainless steel",
+        "notes": "Thermometer lid",
+        "format": "600 ml"
+      }
+    },
+    {
+      "id": "p11",
+      "handle": "espresso-capsules",
+      "title": "Espresso Capsules ×30",
+      "description": "The Midnight Espresso profile, sealed at peak aroma. Aluminium, fully recyclable, Nespresso-compatible.",
+      "images": [
+        {
+          "src": "/products/espresso-capsules.jpg",
+          "alt": "Espresso Capsules ×30"
+        }
+      ],
+      "price": {
+        "amount": 19,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p11v1",
+          "title": "30 caps",
+          "price": {
+            "amount": 19,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p11v2",
+          "title": "60 caps",
+          "price": {
+            "amount": 19,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "capsules",
+        "espresso"
+      ],
+      "collectionHandles": [
+        "capsules"
+      ],
+      "meta": {
+        "origin": "Aluminium",
+        "notes": "Nespresso-compatible",
+        "format": "30 capsules"
+      }
+    },
+    {
+      "id": "p12",
+      "handle": "starter-gift-set",
+      "title": "The Starter Gift Set",
+      "description": "Two 250 g coffees, the Roast Mug and a pour-over dripper in a matte black box. The safest excellent gift in coffee.",
+      "images": [
+        {
+          "src": "/products/starter-gift-set.jpg",
+          "alt": "The Starter Gift Set"
+        }
+      ],
+      "price": {
+        "amount": 59,
+        "currency": "USD"
+      },
+      "compareAtPrice": {
+        "amount": 72,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p12v1",
+          "title": "Default",
+          "price": {
+            "amount": 59,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "gift",
+        "box"
+      ],
+      "collectionHandles": [
+        "gifts"
+      ],
+      "meta": {
+        "origin": "Boxed set",
+        "notes": "2 coffees + mug + dripper",
+        "format": "Gift box"
+      }
+    }
+  ]
+}

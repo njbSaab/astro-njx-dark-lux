@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { commerce } from '../lib/commerce';
+import { HOME as T } from '../constants/pages';
+
+const collections = await commerce.listCollections();
+const byHandle = Object.fromEntries(collections.map((c) => [c.handle, c]));
+
+// three shelves, each with its collection's products
+const shelves = await Promise.all(
+  T.shelves.map(async (s) => ({
+    ...s,
+    products: await commerce.listProducts({ collection: s.collection }),
+  })),
+);
+
+// six category tiles, 3 columns with the middle column dropped (style-book)
+const tileOrder = ['coffee', 'creamers', 'gear', 'merch', 'capsules', 'gifts'];
+const tiles = tileOrder.map((h) => byHandle[h]).filter(Boolean);
+const allProducts = await commerce.listProducts();
+const counts = Object.fromEntries(
+  tiles.map((c) => [c.handle, allProducts.filter((p) => p.collectionHandles.includes(c.handle)).length]),
+);
+
+const serviceIcons: Record<string, string> = {
+  truck: 'M1 5h14v12H1z M15 9h4l3 3v5h-7z M6 19a1.6 1.6 0 1 0 0-.01 M18 19a1.6 1.6 0 1 0 0-.01',
+  mail: 'M2 5h20v14H2z M2 6l10 7L22 6',
+  shield: 'M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z',
+  chat: 'M21 12a8 8 0 0 1-8 8H4l1.5-3A8 8 0 1 1 21 12z',
+};
+---
+
+<Layout overlayHeader={true}>
+  <!-- Hero: hatch background + photo, centered heading; tiles overlap below -->
+  <section class="hatch-135 relative grid min-h-[80vh] place-items-center overflow-hidden px-5 pb-[220px] pt-[160px] text-center">
+    <img src={T.hero.image.src} alt={T.hero.image.alt} class="absolute inset-0 h-full w-full object-cover opacity-40" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/40"></div>
+    <div class="relative max-w-3xl text-white">
+      <h1 class="font-display text-[clamp(38px,6vw,72px)] font-bold uppercase leading-[1.05] tracking-[0.04em]">
+        {T.hero.title}
+      </h1>
+      <p class="mx-auto mt-5 max-w-[54ch] text-[15px] leading-relaxed text-white/75">{T.hero.text}</p>
+    </div>
+  </section>
+
+  <!-- Category tiles ×6: 3 columns, middle column dropped (style-book offset) -->
+  <section class="relative z-10 mx-auto -mt-[190px] max-w-6xl px-5">
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
+      {tiles.map((c, i) => (
+        <a
+          href={`/collections/${c.handle}`}
+          class:list={[
+            'group relative block overflow-hidden border border-white/10 transition-colors duration-200 hover:border-white',
+            i % 3 === 1 && 'sm:mt-14',
+          ]}
+        >
+          <img
+            src={T.categoryShelf.images[c.handle]}
+            alt={c.title}
+            class="aspect-[4/3] w-full object-cover opacity-80 transition duration-500 group-hover:opacity-100"
+            loading={i < 3 ? 'eager' : 'lazy'}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-3 p-5 text-white">
+            <h3 class="text-[17px] font-semibold uppercase tracking-[0.14em]">{c.title}</h3>
+            <span class="shrink-0 text-[12px] tracking-[0.12em] text-white/70">{counts[c.handle]} items</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Product shelves: one slider per featured collection -->
+  {shelves.map((shelf, si) => (
+    <section class:list={['mx-auto max-w-6xl px-5', si === 0 ? 'pt-[120px]' : 'pt-20']} data-shelf>
+      <div class="mb-7 flex items-end justify-between">
+        <div>
+          <p class="mb-2 text-[12px] uppercase tracking-[0.24em] text-white/55">{shelf.eyebrow}</p>
+          <h2 class="font-display text-[clamp(26px,3vw,36px)] font-semibold uppercase leading-none tracking-[0.08em]">{shelf.title}</h2>
+        </div>
+        <div class="hidden gap-1.5 md:flex">
+          <button data-shelf-prev class="grid h-11 w-11 place-items-center border border-white/30 text-[18px] text-white transition hover:border-white" aria-label="Scroll back">←</button>
+          <button data-shelf-next class="grid h-11 w-11 place-items-center border border-white/30 text-[18px] text-white transition hover:border-white" aria-label="Scroll forward">→</button>
+        </div>
+      </div>
+      <div class="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-shelf-track>
+        {shelf.products.map((p) => (
+          <div class="w-[260px] shrink-0 snap-start sm:w-[calc((100%-40px)/3)] sm:min-w-[260px]">
+            <ProductCard product={p} category={byHandle[shelf.collection]?.title} />
+          </div>
+        ))}
+      </div>
+      <div class="mt-7 text-center">
+        <a href={`/collections/${shelf.collection}`} class="inline-block border border-white/30 px-8 py-3 text-[12px] font-semibold uppercase tracking-[0.18em] transition hover:border-white">
+          {shelf.allLabel}
+        </a>
+      </div>
+    </section>
+  ))}
+
+  <!-- Services: fixed white band, icon larger than the title, vertical separators -->
+  <section class="mt-16 bg-white text-[#0a0a0a]">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-y-8 px-5 py-10 sm:grid-cols-2 sm:py-12 lg:grid-cols-4 lg:divide-x lg:divide-[#e5e5e5]">
+      {T.services.map((s) => (
+        <div class="lg:px-7 lg:first:pl-0 lg:last:pr-0">
+          <div class="flex items-center gap-3">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-[#0a0a0a]">
+              {serviceIcons[s.icon].split(' M').map((d, i) => <path d={i === 0 ? d : 'M' + d} />)}
+            </svg>
+            <h3 class="text-[15px] font-extrabold uppercase tracking-wide">{s.title}</h3>
+          </div>
+          <p class="mt-3 text-[14px] leading-relaxed text-[#555]">{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Editorial banner: hatch background, white text LEFT, outline CTA — the theme colophon -->
+  <section class="hatch-45 relative mt-20 overflow-hidden">
+    <div class="relative mx-auto max-w-6xl px-5 py-24 md:py-32">
+      <div class="max-w-xl text-white">
+        <p class="text-[12px] uppercase tracking-[0.24em] text-white/55">{T.colophon.eyebrow}</p>
+        <h2 class="mt-4 font-display text-[clamp(26px,3.5vw,40px)] font-semibold uppercase leading-tight tracking-[0.06em]">
+          {T.colophon.title}
+        </h2>
+        <p class="mt-4 text-[15px] leading-relaxed text-white/75">{T.colophon.text}</p>
+        <a href={T.colophon.cta.href} class="mt-8 inline-block border border-white px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white hover:text-[#0a0a0a]">
+          {T.colophon.cta.label}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // shelf sliders: arrows scroll by one card width
+    document.querySelectorAll<HTMLElement>('[data-shelf]').forEach((shelf) => {
+      const track = shelf.querySelector<HTMLElement>('[data-shelf-track]')!;
+      const step = () => (track.firstElementChild as HTMLElement)?.offsetWidth + 20 || 320;
+      shelf.querySelector('[data-shelf-prev]')?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+      shelf.querySelector('[data-shelf-next]')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    });
+  </script>
+</Layout>

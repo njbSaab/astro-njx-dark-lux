@@ -1,0 +1,203 @@
+@import 'tailwindcss';
+
+/* ── NOCTA design tokens (astro-njx-roast) ──────────────────────
+   Pure-monochrome dark luxury from the owner's style-book:
+   near-black paper, white ink, hairline borders that light up on hover,
+   zero border-radius, wide letter-spacing, diagonal hatch backgrounds.
+   Type: Uni Sans → Jost web fallback (per style-book). Swap by editing
+   --font-* and self-hosting Uni Sans — tokens are the only touch point. */
+@theme {
+  --color-paper: #0a0a0a;
+  --color-tile: #141210;
+  --color-ink: #ffffff;
+  --color-muted: #8f8f8f;
+  --color-line: #262626;
+  --color-brand: #ffffff;
+  --color-brand-deep: #d9d9d9;
+  --color-brand-soft: #1c1c1c;
+
+  --font-display: 'Jost', 'Uni Sans', Helvetica, sans-serif;
+  --font-sans: 'Jost', 'Uni Sans', Helvetica, sans-serif;
+
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-full: 0px;
+}
+
+/* Light mode = re-mapped tokens; every bg-paper/text-ink utility follows. */
+.dark {
+  --color-paper: #f4f4f2;
+  --color-tile: #e8e7e3;
+  --color-ink: #0a0a0a;
+  --color-muted: #6b6b6b;
+  --color-line: #d5d4cf;
+  --color-brand: #0a0a0a;
+  --color-brand-deep: #333333;
+  --color-brand-soft: #e3e2de;
+}
+
+/* Signature diagonal hatch backgrounds (style-book) */
+.hatch-135 {
+  background: #141210 repeating-linear-gradient(135deg, #141210 0 14px, #1b1815 14px 28px);
+}
+.hatch-45 {
+  background: #121110 repeating-linear-gradient(45deg, #121110 0 16px, #19171a 16px 32px);
+}
+/* Logo swap: dark mark on light theme, light mark on dark theme */
+.logo-on-dark {
+  display: none;
+}
+.dark .logo-on-dark {
+  display: block;
+}
+.dark .logo-on-light {
+  display: none;
+}
+.dark .logo-on-dark,
+.logo-on-light {
+  filter: none;
+}
+
+/* Built with: stack logos rendered monochrome — editorial footers stay quiet */
+.tech-row img {
+  filter: grayscale(1) contrast(0.85);
+  opacity: 0.6;
+  transition: opacity 0.15s ease, filter 0.15s ease;
+}
+.tech-row img:hover {
+  filter: grayscale(1) contrast(1);
+  opacity: 0.9;
+}
+.dark .tech-row img {
+  /* dark marks → light gray on the dark footer */
+  filter: grayscale(1) invert(1) contrast(0.8);
+}
+.dark .tech-row img:hover {
+  filter: grayscale(1) invert(1) contrast(1);
+}
+
+/* Active favorite heart */
+[data-fav-toggle].is-fav svg {
+  fill: var(--color-brand);
+  stroke: var(--color-brand);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Header states ──
+   .is-solid: normal pages — paper bg + hairline.
+   .header-overlay: home — transparent over the hero (pulled up via negative
+   margin), turns into blurred glass once the page scrolls (.is-scrolled). */
+#site-header.is-solid {
+  background: color-mix(in srgb, var(--color-paper) 94%, transparent);
+  border-bottom: 1px solid var(--color-line);
+  backdrop-filter: blur(10px);
+}
+#site-header.header-overlay {
+  margin-bottom: -76px; /* hero slides underneath */
+  color: #fff;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+}
+#site-header.header-overlay.is-scrolled {
+  color: var(--color-ink);
+  background: color-mix(in srgb, var(--color-paper) 86%, transparent);
+  border-bottom-color: var(--color-line);
+  backdrop-filter: blur(14px);
+}
+
+/* ── Quick view: near-black blurred overlay; the header stays visible and
+   adopts the same dark glass while the popup is open ── */
+.qv-backdrop {
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(5px);
+}
+body.qv-open {
+  overflow: hidden;
+}
+body.qv-open #site-header {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
+}
+
+/* ── Footer: always espresso-dark regardless of theme (local token remap) ── */
+.site-footer {
+  --color-paper: #0d0906;
+  --color-tile: #17110c;
+  --color-ink: #f4ede4;
+  --color-muted: #a3937f;
+  --color-line: #2b211a;
+  background: #0d0906;
+  color: #f4ede4;
+}
+.site-footer .tech-row img {
+  filter: grayscale(1) invert(1) contrast(0.8);
+}
+.site-footer .tech-row img:hover {
+  filter: grayscale(1) invert(1) contrast(1);
+}
+
+/* Tailwind v4 preflight makes buttons cursor:default — restore pointer
+   on everything interactive (disabled stays default). */
+button:not(:disabled),
+[role='button']:not(:disabled),
+select,
+summary,
+input[type='checkbox'],
+input[type='radio'] {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Cart drawer & fullscreen menu open state */
+body.cart-open,
+body.nav-open {
+  overflow: hidden;
+}
+#cart-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+#cart-drawer {
+  /* +1.5rem — the card sits at right-4, so it must slide fully off-screen */
+  transform: translateX(calc(100% + 1.5rem));
+  transition: transform 0.3s cubic-bezier(0.3, 0, 0.2, 1);
+}
+body.cart-open #cart-backdrop {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Fullscreen menu: fades down from the header, editorial takeover */
+#nav-drawer {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-14px);
+  transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.3, 0, 0.2, 1);
+}
+body.nav-open #nav-drawer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+body.cart-open #cart-drawer,
+body.nav-open #nav-drawer {
+  transform: translateX(0);
+}
