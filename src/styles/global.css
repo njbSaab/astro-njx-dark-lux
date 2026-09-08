@@ -139,6 +139,20 @@ body.qv-open #site-header {
   color: #0a0a0a;
 }
 
+/* ── Dark card: black block with white type inside a light page ── */
+.dark-card {
+  --color-paper: #0a0a0a;
+  --color-tile: #161616;
+  --color-ink: #ffffff;
+  --color-muted: #9a9a9a;
+  --color-line: #2a2a2a;
+  --color-brand: #ffffff;
+  --color-brand-deep: #d9d9d9;
+  --color-brand-soft: #1c1c1c;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
 /* ── Footer: always espresso-dark regardless of theme (local token remap) ── */
 .site-footer {
   --color-paper: #050505;
