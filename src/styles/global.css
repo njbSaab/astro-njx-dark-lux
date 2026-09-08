@@ -239,14 +239,27 @@ body.nav-open {
   pointer-events: none;
   transition: opacity 0.25s ease;
 }
+/* Cart popup: fades in with a slight lift, same language as quick view */
 #cart-drawer {
-  /* +1.5rem — the card sits at right-4, so it must slide fully off-screen */
-  transform: translateX(calc(100% + 1.5rem));
-  transition: transform 0.3s cubic-bezier(0.3, 0, 0.2, 1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.28s ease, transform 0.32s cubic-bezier(0.3, 0, 0.2, 1);
+}
+body.cart-open #cart-drawer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 body.cart-open #cart-backdrop {
   opacity: 1;
   pointer-events: auto;
+}
+body.cart-open #site-header {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(5px);
 }
 /* Fullscreen menu: fades down from the header, editorial takeover */
 #nav-drawer {
@@ -260,7 +273,6 @@ body.nav-open #nav-drawer {
   pointer-events: auto;
   transform: translateY(0);
 }
-body.cart-open #cart-drawer,
 body.nav-open #nav-drawer {
-  transform: translateX(0);
+  transform: translateY(0);
 }

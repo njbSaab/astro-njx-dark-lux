@@ -264,43 +264,42 @@ const searchIndex = JSON.stringify(
       </div>
     </div>
 
-    <!-- ── Cart drawer ── -->
-    <div id="cart-backdrop" class="fixed inset-0 z-40 bg-ink/40" aria-hidden="true"></div>
+    <!-- ── Cart: centered white card over the dark blurred overlay,
+         same language as the quick-view popup ── -->
+    <div id="cart-backdrop" class="qv-backdrop fixed inset-0 z-40" aria-hidden="true"></div>
     <aside
       id="cart-drawer"
-      class="fixed bottom-4 right-4 top-4 z-50 flex w-[calc(100%-2rem)] max-w-md flex-col overflow-hidden rounded-2xl border border-line bg-paper shadow-2xl"
+      class="fixed inset-0 z-50 grid place-items-center overflow-y-auto px-5 py-24"
       aria-label={CART.ariaDrawer}
     >
-      <div class="flex items-center justify-between border-b border-line px-6 py-5">
-        <h2 class="flex items-center gap-2 font-display text-xl font-bold"><img src={SITE.logoDark} alt="" class="logo-on-light h-7 w-7 rounded-md" /><img src={SITE.logoLight} alt="" class="logo-on-dark h-7 w-7 rounded-md" />{SITE.name}</h2>
-        <div class="flex items-center gap-1">
-          <button id="cart-clear" class="hidden rounded-md px-2.5 py-2 text-[13px] text-muted hover:text-ink" aria-label={CART.ariaClear}>
+      <div class="light-section relative w-full max-w-2xl">
+        <button id="cart-close" class="absolute right-0 top-0 z-10 grid h-[52px] w-[52px] place-items-center bg-black text-[22px] leading-none text-white transition hover:bg-[#333]" aria-label={CART.ariaClose}>×</button>
+        <div class="flex items-center justify-between gap-4 px-8 pt-7">
+          <h2 class="text-[15px] font-semibold uppercase tracking-[0.24em]">{CART.ariaDrawer}</h2>
+          <button id="cart-clear" class="mr-14 hidden text-[12px] uppercase tracking-[0.14em] text-muted underline underline-offset-4 hover:text-ink" aria-label={CART.ariaClear}>
             {CART.clearLabel}
           </button>
-          <button id="cart-close" class="rounded-md p-2 text-muted hover:text-ink" aria-label={CART.ariaClose}>✕</button>
         </div>
-      </div>
-      <div class="flex-1 overflow-y-auto">
-        <div id="cart-lines" class="px-6 py-4"></div>
+        <div id="cart-lines" class="px-8 pt-2"></div>
         <!-- Saved for later: favorites live INSIDE the cart, not as a separate page -->
-        <div id="cart-saved" class="hidden border-t border-line px-6 py-4">
-          <p class="text-[13px] font-semibold uppercase tracking-wide text-muted">{CART.savedTitle}</p>
+        <div id="cart-saved" class="hidden border-t border-line px-8 py-4">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-muted">{CART.savedTitle}</p>
           <div id="cart-saved-lines"></div>
         </div>
-      </div>
-      <div class="border-t border-line px-6 py-5">
-        <div class="flex items-center justify-between text-[15px]">
-          <span class="text-muted">{CART.subtotalLabel}</span>
-          <span id="cart-subtotal" class="font-semibold">$0</span>
+        <div class="border-t border-line px-8 py-6">
+          <div class="flex items-center justify-between text-[15px]">
+            <span class="text-[12px] uppercase tracking-[0.2em] text-muted">{CART.subtotalLabel}</span>
+            <span id="cart-subtotal" class="font-semibold">$0</span>
+          </div>
+          <p class="mt-1 text-[13px] text-muted">{CART.shippingNote}</p>
+          <button
+            id="cart-checkout"
+            class="mt-5 w-full bg-black py-3.5 text-[13px] font-semibold uppercase tracking-[0.18em] text-white transition hover:bg-[#333] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            {CART.checkoutLabel}
+          </button>
+          <p id="cart-note" class="mt-2 hidden text-center text-[13px] text-muted"></p>
         </div>
-        <p class="mt-1 text-[13px] text-muted">{CART.shippingNote}</p>
-        <button
-          id="cart-checkout"
-          class="mt-4 w-full rounded-md bg-brand py-3.5 text-[15px] font-semibold text-white hover:bg-brand-deep disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {CART.checkoutLabel}
-        </button>
-        <p id="cart-note" class="mt-2 hidden text-center text-[13px] text-muted"></p>
       </div>
     </aside>
 
