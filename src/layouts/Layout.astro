@@ -90,10 +90,7 @@ const searchIndex = JSON.stringify(
       <div>
       <nav class="mx-auto grid h-[76px] max-w-6xl grid-cols-[auto_1fr_auto] items-center gap-4 px-3 sm:px-5">
         <a href="/" class="flex items-center gap-2.5 justify-self-start font-bold uppercase tracking-[0.32em] text-[17px]">
-          <!-- target-circle mark from the style-book -->
-          <span class="relative inline-block h-[22px] w-[22px] border-2 border-current" style="border-radius:50%">
-            <span class="absolute inset-[5px] bg-current" style="border-radius:50%"></span>
-          </span>
+          <img src={SITE.logoLight} alt="" class="h-8 w-8 rounded-md" />
           {SITE.name}
         </a>
         <div class="hidden items-center justify-center gap-1.5 sm:flex">
@@ -309,7 +306,7 @@ const searchIndex = JSON.stringify(
     <aside id="nav-drawer" class="fixed inset-0 z-50 flex flex-col overflow-hidden bg-paper" aria-label={NAV_DRAWER.ariaDrawer}>
       <div class="border-b border-line">
         <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5">
-          <h2 class="font-display text-[26px] font-medium tracking-[0.04em]">{SITE.name}</h2>
+          <h2 class="flex items-center gap-2.5 font-display text-[22px] font-bold uppercase tracking-[0.32em]"><img src={SITE.logoLight} alt="" class="h-8 w-8 rounded-md" />{SITE.name}</h2>
           <button id="nav-close" class="p-2 text-muted transition hover:bg-tile hover:text-ink" aria-label={NAV_DRAWER.ariaClose}>
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
           </button>

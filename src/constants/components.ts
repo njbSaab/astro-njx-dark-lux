@@ -4,19 +4,19 @@
  */
 
 export const SITE = {
-  name: 'NOCTA',
-  defaultTitle: 'NOCTA — coffee roasted in the dark',
+  name: 'njX',
+  defaultTitle: 'njX — coffee roasted in the dark',
   defaultDescription:
     'Demo storefront for astro-njx-dark-lux: a dark-luxury coffee theme for Astro. Mock data out of the box, Shopify with two env vars.',
-  logoDark: '/logo/nocta-dark.svg', // dark mark — shown on the light (latte) theme
-  logoLight: '/logo/nocta-light.svg', // light mark — shown on the dark theme
+  logoDark: '/logo/njx-shop-dark.png', // dark mark — shown on the light (latte) theme
+  logoLight: '/logo/njx-shop-light.png', // light mark — shown on the dark theme
   repoUrl: 'https://github.com/njbSaab/astro-njx-dark-lux',
   authorUrl: 'https://njxui.dev',
 } as const;
 
 export const ANNOUNCEMENT = {
   text: 'Free shipping over $50 · −10% on your first order with code',
-  promoCode: 'NOCTA10',
+  promoCode: 'NJX10',
   copiedLabel: 'Copied ✓',
   linkLabel: 'If you star the theme, I’ll be happy ♡',
   linkHref: SITE.repoUrl,
