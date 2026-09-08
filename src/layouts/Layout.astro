@@ -330,14 +330,16 @@ const searchIndex = JSON.stringify(
           Cart
         </button>
       </div>
-      <nav class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center gap-1 overflow-y-auto px-5">
+      <nav class="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-1 overflow-y-auto px-5">
+        <div class="my-auto flex flex-col gap-1">
         {[NAV_DRAWER.home, ...NAV_DRAWER.collections].map((l) => (
           <a href={l.href} class={navCls(l.href, "menu-link group flex items-baseline gap-4 self-start py-3 font-display text-[clamp(22px,7vw,44px)] uppercase leading-tight tracking-[0.06em]", "is-active")}>
             {l.label}
             <span class="-translate-x-2 text-[22px] font-sans text-muted opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">→</span>
           </a>
         ))}
-        <div class="mt-6 flex flex-wrap gap-x-8 gap-y-2">
+        </div>
+        <div class="flex flex-wrap gap-x-8 gap-y-2 pb-5">
           {NAV_DRAWER.pages.map((l) => (
             <a href={l.href} class={navCls(l.href, "text-[16px] text-muted hover:text-ink hover:underline underline-offset-4", "text-ink underline underline-offset-4")}>{l.label}</a>
           ))}
