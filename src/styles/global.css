@@ -40,10 +40,10 @@
 
 /* Signature diagonal hatch backgrounds (style-book) */
 .hatch-135 {
-  background: #141210 repeating-linear-gradient(135deg, #141210 0 14px, #1b1815 14px 28px);
+  background: var(--color-paper);
 }
 .hatch-45 {
-  background: #121110 repeating-linear-gradient(45deg, #121110 0 16px, #19171a 16px 32px);
+  background: var(--color-paper);
 }
 /* Logo swap: dark mark on light theme, light mark on dark theme */
 .logo-on-dark {
@@ -128,13 +128,13 @@ body.qv-open #site-header {
 
 /* ── Footer: always espresso-dark regardless of theme (local token remap) ── */
 .site-footer {
-  --color-paper: #0d0906;
-  --color-tile: #17110c;
-  --color-ink: #f4ede4;
-  --color-muted: #a3937f;
-  --color-line: #2b211a;
-  background: #0d0906;
-  color: #f4ede4;
+  --color-paper: #050505;
+  --color-tile: #111111;
+  --color-ink: #ffffff;
+  --color-muted: #8f8f8f;
+  --color-line: #222222;
+  background: #050505;
+  color: #ffffff;
 }
 .site-footer .tech-row img {
   filter: grayscale(1) invert(1) contrast(0.8);
