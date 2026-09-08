@@ -206,27 +206,27 @@ const searchIndex = JSON.stringify(
 
     <!-- ── Quick view popup: dark blurred overlay, white product card,
          the header stays visible above it (spec: cartenoire-style) ── -->
-    <div id="quickview" class="fixed inset-0 z-30 grid hidden place-items-center overflow-y-auto px-5 py-24" role="dialog" aria-modal="true" aria-label="Product quick view">
+    <div id="quickview" class="fixed inset-0 z-30 grid hidden place-items-center overflow-y-auto px-3 py-20 sm:px-5 sm:py-24" role="dialog" aria-modal="true" aria-label="Product quick view">
       <div class="qv-backdrop absolute inset-0" data-qv-close></div>
       <div class="relative mx-auto grid w-full max-w-4xl bg-white text-[#0a0a0a] md:grid-cols-2">
         <button data-qv-close class="absolute right-0 top-0 z-10 grid h-[52px] w-[52px] place-items-center bg-black text-[22px] leading-none text-white transition hover:bg-[#333]" aria-label="Close quick view">×</button>
         <div class="relative min-h-[300px] bg-[#141210] md:min-h-[420px]">
           <img data-qv-img src="" alt="" class="absolute inset-0 h-full w-full object-cover" />
         </div>
-        <div class="flex flex-col p-8 md:p-11">
-          <p data-qv-category class="mb-3 text-[11px] uppercase tracking-[0.3em] text-[#666]"></p>
-          <h3 data-qv-title class="mb-3 font-display text-[30px] font-semibold uppercase leading-[1.05] tracking-[0.02em]"></h3>
-          <p class="mb-4 text-[18px]">
+        <div class="flex flex-col p-5 sm:p-8 md:p-11">
+          <p data-qv-category class="mb-2 text-[10px] uppercase tracking-[0.3em] text-[#666] sm:mb-3 sm:text-[11px]"></p>
+          <h3 data-qv-title class="mb-3 font-display text-[clamp(20px,5vw,30px)] font-semibold uppercase leading-[1.05] tracking-[0.02em]"></h3>
+          <p class="mb-4 text-[16px] sm:text-[18px]">
             <s data-qv-compare class="mr-2 hidden text-[14px] text-[#999]"></s>
             <span data-qv-price class="font-semibold"></span>
           </p>
           <p data-qv-desc class="mb-6 text-[14px] leading-relaxed text-[#333]"></p>
           <!-- spec grid: hairline 2×2 (style-book) -->
-          <div class="mb-6 grid grid-cols-2 gap-px border border-black/15 bg-black/15 text-[13px]">
-            <div class="bg-white p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Origin</span><span data-qv-origin></span></div>
-            <div class="bg-white p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Notes</span><span data-qv-notes></span></div>
-            <div class="bg-white p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Format</span><span data-qv-format></span></div>
-            <div class="bg-white p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Ships</span>Within 48 h</div>
+          <div class="mb-5 grid grid-cols-2 gap-px border border-black/15 bg-black/15 text-[12px] sm:mb-6 sm:text-[13px]">
+            <div class="bg-white p-2.5 sm:p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Origin</span><span data-qv-origin></span></div>
+            <div class="bg-white p-2.5 sm:p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Notes</span><span data-qv-notes></span></div>
+            <div class="bg-white p-2.5 sm:p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Format</span><span data-qv-format></span></div>
+            <div class="bg-white p-2.5 sm:p-3.5"><span class="mb-1 block text-[10px] uppercase tracking-[0.2em] text-[#777]">Ships</span>Within 48 h</div>
           </div>
           <div data-qv-variants class="flex flex-wrap gap-2"></div>
           <div class="mt-auto flex gap-2 pt-6">
