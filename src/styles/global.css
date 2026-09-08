@@ -161,17 +161,18 @@ body.qv-open #site-header {
 .menu-link::after {
   content: '';
   position: absolute;
-  left: 50%;
+  left: 0;
   bottom: 6px;
   height: 2px;
   width: 0;
   background: currentColor;
-  transform: translateX(-50%);
   transition: width 0.35s cubic-bezier(0.3, 0, 0.2, 1);
 }
-.menu-link:hover::after,
-.menu-link.is-active::after {
+.menu-link:hover::after {
   width: 30%;
+}
+.menu-link.is-active::after {
+  width: 100%;
 }
 
 /* ── FAQ: closed items stay light, open items flip to black + white type ── */
