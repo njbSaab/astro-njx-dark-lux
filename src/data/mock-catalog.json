@@ -604,6 +604,497 @@
         "notes": "2 coffees + mug + dripper",
         "format": "Gift box"
       }
+    },
+    {
+      "id": "p13",
+      "handle": "dark-matter-blend",
+      "title": "Dark Matter Blend",
+      "description": "A syrupy espresso blend built for milk: dark chocolate, molasses, a finish that cuts through any latte.",
+      "images": [
+        {
+          "src": "/products/velvet-lungo.jpg",
+          "alt": "Dark Matter Blend"
+        }
+      ],
+      "price": {
+        "amount": 17,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p13v1",
+          "title": "250 g",
+          "price": {
+            "amount": 17,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p13v2",
+          "title": "500 g",
+          "price": {
+            "amount": 17,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p13v3",
+          "title": "1 kg",
+          "price": {
+            "amount": 17,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "espresso",
+        "dark-roast"
+      ],
+      "collectionHandles": [
+        "coffee"
+      ],
+      "meta": {
+        "origin": "Brazil · India",
+        "notes": "Dark chocolate, molasses",
+        "format": "Whole bean"
+      }
+    },
+    {
+      "id": "p14",
+      "handle": "midnight-decaf",
+      "title": "Midnight Decaf",
+      "description": "Swiss-water decaf that still tastes like coffee. Roasted dark, sweet and honest — the second cup at 9 pm.",
+      "images": [
+        {
+          "src": "/products/midnight-espresso.jpg",
+          "alt": "Midnight Decaf"
+        }
+      ],
+      "price": {
+        "amount": 16,
+        "currency": "USD"
+      },
+      "compareAtPrice": {
+        "amount": 19,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p14v1",
+          "title": "250 g",
+          "price": {
+            "amount": 16,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p14v2",
+          "title": "500 g",
+          "price": {
+            "amount": 16,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p14v3",
+          "title": "1 kg",
+          "price": {
+            "amount": 16,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "decaf",
+        "dark-roast",
+        "sale"
+      ],
+      "collectionHandles": [
+        "coffee"
+      ],
+      "meta": {
+        "origin": "Colombia",
+        "notes": "Cocoa, brown sugar",
+        "format": "Whole bean"
+      }
+    },
+    {
+      "id": "p15",
+      "handle": "filter-sampler",
+      "title": "Filter Sampler ×3",
+      "description": "Three 100 g bags of our current filter lots. The cheapest way to argue about coffee with yourself.",
+      "images": [
+        {
+          "src": "/products/single-origin-yirgacheffe.jpg",
+          "alt": "Filter Sampler ×3"
+        }
+      ],
+      "price": {
+        "amount": 21,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p15v1",
+          "title": "Default",
+          "price": {
+            "amount": 21,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "single-origin",
+        "gift"
+      ],
+      "collectionHandles": [
+        "coffee"
+      ],
+      "meta": {
+        "origin": "Rotating farms",
+        "notes": "Three profiles",
+        "format": "3 × 100 g"
+      }
+    },
+    {
+      "id": "p16",
+      "handle": "cold-brew-bottle",
+      "title": "Cold Brew Bottle",
+      "description": "One-litre glass bottle with a steel filter core. Overnight cold brew without a single extra gadget.",
+      "images": [
+        {
+          "src": "/products/pour-over-kit.jpg",
+          "alt": "Cold Brew Bottle"
+        }
+      ],
+      "price": {
+        "amount": 34,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p16v1",
+          "title": "Default",
+          "price": {
+            "amount": 34,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "glass",
+        "cold-brew"
+      ],
+      "collectionHandles": [
+        "gear"
+      ],
+      "meta": {
+        "origin": "Borosilicate glass",
+        "notes": "Steel filter core",
+        "format": "1 L"
+      }
+    },
+    {
+      "id": "p17",
+      "handle": "digital-scale",
+      "title": "Precision Scale",
+      "description": "0.1 g accuracy, built-in timer, silicone pad. The difference between a recipe and a guess.",
+      "images": [
+        {
+          "src": "/products/gooseneck-kettle.jpg",
+          "alt": "Precision Scale"
+        }
+      ],
+      "price": {
+        "amount": 42,
+        "currency": "USD"
+      },
+      "compareAtPrice": {
+        "amount": 52,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p17v1",
+          "title": "Default",
+          "price": {
+            "amount": 42,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "steel",
+        "sale"
+      ],
+      "collectionHandles": [
+        "gear"
+      ],
+      "meta": {
+        "origin": "Stainless + silicone",
+        "notes": "0.1 g · timer",
+        "format": "USB-C"
+      }
+    },
+    {
+      "id": "p18",
+      "handle": "hazelnut-creamer",
+      "title": "Hazelnut Creamer",
+      "description": "Roasted hazelnut folded into double cream. The pastry-shop cup without the pastry shop.",
+      "images": [
+        {
+          "src": "/products/vanilla-bean-creamer.jpg",
+          "alt": "Hazelnut Creamer"
+        }
+      ],
+      "price": {
+        "amount": 11,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p18v1",
+          "title": "6-pack",
+          "price": {
+            "amount": 11,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p18v2",
+          "title": "12-pack",
+          "price": {
+            "amount": 11,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "hazelnut"
+      ],
+      "collectionHandles": [
+        "creamers"
+      ],
+      "meta": {
+        "origin": "Piedmont hazelnuts",
+        "notes": "Toasted, sweet",
+        "format": "6 × 500 ml"
+      }
+    },
+    {
+      "id": "p19",
+      "handle": "cacao-creamer",
+      "title": "Cacao Creamer",
+      "description": "Single-origin cacao and cream — a mocha that respects the espresso underneath.",
+      "images": [
+        {
+          "src": "/products/oat-cloud-creamer.jpg",
+          "alt": "Cacao Creamer"
+        }
+      ],
+      "price": {
+        "amount": 12,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p19v1",
+          "title": "6-pack",
+          "price": {
+            "amount": 12,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p19v2",
+          "title": "12-pack",
+          "price": {
+            "amount": 12,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "cacao"
+      ],
+      "collectionHandles": [
+        "creamers"
+      ],
+      "meta": {
+        "origin": "Ecuador cacao",
+        "notes": "Dark, silky",
+        "format": "6 × 500 ml"
+      }
+    },
+    {
+      "id": "p20",
+      "handle": "roastery-tee",
+      "title": "Roastery Tee",
+      "description": "Heavyweight cotton, midnight black, small target logo on the chest. Smells faintly of roast day forever.",
+      "images": [
+        {
+          "src": "/products/barista-apron.jpg",
+          "alt": "Roastery Tee"
+        }
+      ],
+      "price": {
+        "amount": 28,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p20v1",
+          "title": "S",
+          "price": {
+            "amount": 28,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p20v2",
+          "title": "M",
+          "price": {
+            "amount": 28,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p20v3",
+          "title": "L",
+          "price": {
+            "amount": 28,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p20v4",
+          "title": "XL",
+          "price": {
+            "amount": 28,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "cotton",
+        "gift"
+      ],
+      "collectionHandles": [
+        "merch"
+      ],
+      "meta": {
+        "origin": "220 gsm cotton",
+        "notes": "Target logo",
+        "format": "Boxy fit"
+      }
+    },
+    {
+      "id": "p21",
+      "handle": "lungo-capsules",
+      "title": "Lungo Capsules ×30",
+      "description": "The Velvet Lungo profile in recyclable aluminium. Long, silky, dangerous before deadlines.",
+      "images": [
+        {
+          "src": "/products/espresso-capsules.jpg",
+          "alt": "Lungo Capsules ×30"
+        }
+      ],
+      "price": {
+        "amount": 19,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p21v1",
+          "title": "30 caps",
+          "price": {
+            "amount": 19,
+            "currency": "USD"
+          },
+          "available": true
+        },
+        {
+          "id": "p21v2",
+          "title": "60 caps",
+          "price": {
+            "amount": 19,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "capsules",
+        "lungo"
+      ],
+      "collectionHandles": [
+        "capsules"
+      ],
+      "meta": {
+        "origin": "Aluminium",
+        "notes": "Nespresso-compatible",
+        "format": "30 capsules"
+      }
+    },
+    {
+      "id": "p22",
+      "handle": "brewers-gift-set",
+      "title": "The Brewer's Gift Set",
+      "description": "Pour-over kit, two filter coffees and the scale — the full slow-morning starter, boxed in black.",
+      "images": [
+        {
+          "src": "/products/starter-gift-set.jpg",
+          "alt": "The Brewer's Gift Set"
+        }
+      ],
+      "price": {
+        "amount": 89,
+        "currency": "USD"
+      },
+      "compareAtPrice": {
+        "amount": 104,
+        "currency": "USD"
+      },
+      "variants": [
+        {
+          "id": "p22v1",
+          "title": "Default",
+          "price": {
+            "amount": 89,
+            "currency": "USD"
+          },
+          "available": true
+        }
+      ],
+      "tags": [
+        "gift",
+        "box"
+      ],
+      "collectionHandles": [
+        "gifts"
+      ],
+      "meta": {
+        "origin": "Boxed set",
+        "notes": "Kit + 2 coffees + scale",
+        "format": "Gift box"
+      }
     }
   ]
 }
