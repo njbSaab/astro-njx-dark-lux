@@ -745,6 +745,18 @@ const searchIndex = JSON.stringify(
         }
       });
 
+      // ── Touch devices: reveal card actions for cards that are on screen ──
+      if (window.matchMedia('(hover: none)').matches) {
+        const cardIO = new IntersectionObserver(
+          (entries) =>
+            entries.forEach((en) =>
+              en.target.classList.toggle('is-inview', en.intersectionRatio >= 0.6),
+            ),
+          { threshold: [0, 0.6, 1] },
+        );
+        document.querySelectorAll('[data-quickview]').forEach((c) => cardIO.observe(c));
+      }
+
       // ── Header: blur once the page scrolls (overlay mode on home) ──
       const hdr = document.getElementById('site-header');
       if (hdr) {

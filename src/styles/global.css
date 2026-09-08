@@ -180,6 +180,14 @@ body.qv-open #site-header {
   transform: translateX(0);
 }
 
+/* ── Touch devices: no hover, so the card that is actually on screen
+   (tracked with IntersectionObserver) shows its actions ── */
+@media (hover: none) {
+  [data-quickview].is-inview .card-actions {
+    opacity: 1;
+  }
+}
+
 /* ── FAQ: closed items stay light, open items flip to black + white type ── */
 .faq-list details[open] {
   --color-ink: #ffffff;
