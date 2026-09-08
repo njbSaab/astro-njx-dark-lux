@@ -4,20 +4,22 @@ import { SITE } from '../constants/components';
 import { ABOUT as T } from '../constants/pages';
 ---
 
-<Layout title={T.meta.title} description={T.meta.description}>
-  <section class="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-4 sm:pb-8 pt-6 md:grid-cols-[1.1fr_1fr] md:pt-12">
-    <div>
-      <img src={SITE.logoDark} alt={`${SITE.name} logo`} class="logo-on-light mb-6 h-16 w-16 rounded-xl" />
-      <img src={SITE.logoLight} alt={`${SITE.name} logo`} class="logo-on-dark mb-6 h-16 w-16 rounded-xl" />
-      <h1 class="font-display text-[clamp(36px,5vw,60px)] font-extrabold leading-[1.02] tracking-tight">
-        {T.hero.title}
-      </h1>
-      {T.hero.paragraphs.map((p, i) => (
-        <p class:list={['max-w-[52ch] text-[16px] leading-relaxed text-muted', i === 0 ? 'mt-5' : 'mt-4']}>{p}</p>
-      ))}
-    </div>
-    <div class="overflow-hidden rounded-xl bg-tile">
-      <img src={T.hero.image.src} alt={T.hero.image.alt} class="aspect-[4/5] w-full object-cover" />
+<Layout title={T.meta.title} description={T.meta.description} lightPage={true}>
+  <!-- hero on a white band: black elements on white (style-book contrast) -->
+  <section class="light-section">
+    <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-10 md:grid-cols-[1.1fr_1fr] md:py-16">
+      <div>
+        <img src={SITE.logoDark} alt={`${SITE.name} logo`} class="mb-6 h-14 w-14" />
+        <h1 class="font-display text-[clamp(36px,5vw,60px)] font-semibold uppercase leading-[1.05] tracking-[0.04em]">
+          {T.hero.title}
+        </h1>
+        {T.hero.paragraphs.map((p, i) => (
+          <p class:list={['max-w-[52ch] text-[16px] leading-relaxed text-muted', i === 0 ? 'mt-5' : 'mt-4']}>{p}</p>
+        ))}
+      </div>
+      <div class="overflow-hidden bg-tile">
+        <img src={T.hero.image.src} alt={T.hero.image.alt} class="aspect-[4/5] w-full object-cover" />
+      </div>
     </div>
   </section>
 
@@ -40,7 +42,7 @@ import { ABOUT as T } from '../constants/pages';
           {T.themeBlock.title}
         </h2>
         <p class="mt-4 text-[15px] leading-relaxed text-muted" set:html={T.themeBlock.textHtml} />
-        <a href={T.themeBlock.cta.href} class="mt-6 inline-block rounded-md bg-brand px-6 py-3.5 text-[15px] font-semibold text-white hover:bg-brand-deep">
+        <a href={T.themeBlock.cta.href} class="mt-6 inline-block rounded-md border border-white/40 bg-black px-6 py-3.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-white transition hover:border-white">
           {T.themeBlock.cta.label}
         </a>
       </div>
@@ -61,7 +63,7 @@ import { ABOUT as T } from '../constants/pages';
   <section class="mx-auto flex max-w-3xl flex-col items-center justify-center gap-4 px-5 py-4 sm:py-14 text-center">
     <h2 class="font-display text-2xl font-bold">{T.cta.title}</h2>
     <p class="text-[15px] text-muted">{T.cta.text}</p>
-    <a href={T.cta.button.href} class="rounded-md bg-brand px-6 py-3.5 text-[15px] font-semibold text-white hover:bg-brand-deep">
+    <a href={T.cta.button.href} class="rounded-md border border-white/40 bg-black px-6 py-3.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-white transition hover:border-white">
       {T.cta.button.label}
     </a>
   </section>

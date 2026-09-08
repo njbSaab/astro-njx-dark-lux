@@ -60,6 +60,15 @@ export const HOME = {
 
 export const COLLECTION = {
   metaSuffix: ` — ${SITE.name}`,
+  // full-width banner per collection (owner's Carte Noire pulls, dark & moody)
+  banners: {
+    coffee: '/images/coffe_grain.avif',
+    creamers: '/images/coffe-device2.webp',
+    gear: '/images/coffe-device.webp',
+    merch: '/images/coffe-cip.avif',
+    capsules: '/images/milk-2.webp',
+    gifts: '/images/2880x1834_hero_notre_qualite_deskop.jpg',
+  } as Record<string, string>,
   allTag: 'All',
   sortLabel: 'Sort',
   sortOptions: [

@@ -124,6 +124,21 @@ body.qv-open #site-header {
   backdrop-filter: blur(5px);
 }
 
+/* ── Light section: white band with black elements (style-book contrast
+   move) — local token remap, everything inside recolors automatically ── */
+.light-section {
+  --color-paper: #ffffff;
+  --color-tile: #f1f1f1;
+  --color-ink: #0a0a0a;
+  --color-muted: #555555;
+  --color-line: #e3e3e3;
+  --color-brand: #0a0a0a;
+  --color-brand-deep: #333333;
+  --color-brand-soft: #ededed;
+  background: #ffffff;
+  color: #0a0a0a;
+}
+
 /* ── Footer: always espresso-dark regardless of theme (local token remap) ── */
 .site-footer {
   --color-paper: #050505;

@@ -14,7 +14,7 @@ const products = await commerce.listProducts({ collection: collection.handle });
 const all = await commerce.listCollections();
 
 // Banner: the collection's tile image (first product photo works as fallback)
-const bannerSrc = HOME.categoryShelf.images[collection.handle] ?? products[0]?.images[0]?.src;
+const bannerSrc = T.banners[collection.handle] ?? HOME.categoryShelf.images[collection.handle] ?? products[0]?.images[0]?.src;
 
 // This collection's tags — used by the client-side filter (with piece counts)
 const tags = [...new Set(products.flatMap((p) => p.tags))].sort();

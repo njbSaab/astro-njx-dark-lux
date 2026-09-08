@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import { ACCOUNT as T } from '../constants/pages';
 ---
 
-<Layout title={T.meta.title} description={T.meta.description}>
+<Layout title={T.meta.title} description={T.meta.description} lightPage={true}>
   <section class="mx-auto max-w-md px-5 py-10 sm:py-16">
     <div class="rounded-xl border border-line bg-tile/40 p-5 sm:p-8">
       <div class="grid grid-cols-2 gap-1 rounded-md bg-tile p-1 text-[14px] font-medium" role="tablist" aria-label="Auth mode">
@@ -69,7 +69,7 @@ import { ACCOUNT as T } from '../constants/pages';
           </label>
           <a data-field="forgot" href="#" class="text-muted underline underline-offset-2 hover:text-ink">{T.fields.forgot}</a>
         </div>
-        <button type="submit" data-auth-submit class="w-full rounded-md bg-brand py-3.5 text-[15px] font-semibold text-white hover:bg-brand-deep">
+        <button type="submit" data-auth-submit class="w-full rounded-md border border-white/40 bg-black py-3.5 text-[13px] font-semibold uppercase tracking-[0.14em] text-white transition hover:border-white">
           {T.login.submit}
         </button>
         <p data-auth-note class="hidden rounded-md bg-brand-soft px-4 py-3 text-center text-[13px] leading-relaxed"></p>

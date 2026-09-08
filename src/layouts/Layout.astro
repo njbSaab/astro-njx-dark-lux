@@ -10,12 +10,15 @@ interface Props {
   description?: string;
   /** Home passes true: header starts transparent over the hero, blurs on scroll */
   overlayHeader?: boolean;
+  /** Content pages: white background, black elements (light-section remap) */
+  lightPage?: boolean;
 }
 
 const {
   title = SITE.defaultTitle,
   description = SITE.defaultDescription,
   overlayHeader = false,
+  lightPage = false,
 } = Astro.props;
 
 // Active nav item: bg-tile/text-ink are tokens, they follow the theme automatically
@@ -150,7 +153,9 @@ const searchIndex = JSON.stringify(
       </div>
     </header>
 
-    <slot />
+    <div class:list={[lightPage && 'light-section']}>
+      <slot />
+    </div>
 
     <footer class="site-footer w-full">
       <div class="mx-auto max-w-6xl">
