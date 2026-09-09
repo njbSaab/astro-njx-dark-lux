@@ -41,6 +41,14 @@ const serviceIcons: Record<string, string> = {
         {T.hero.title}
       </h1>
       <p class="mx-auto mt-5 max-w-[54ch] text-[15px] leading-relaxed text-white/75">{T.hero.text}</p>
+      <div class="mt-9 flex flex-wrap items-center justify-center gap-5">
+        <a href={T.hero.cta.href} class="inline-block border border-white px-8 py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-white hover:text-[#0a0a0a]">
+          {T.hero.cta.label}
+        </a>
+        <a href={T.hero.cta2.href} class="inline-block px-2 py-3.5 text-[12px] font-semibold uppercase tracking-[0.2em] text-white/70 underline decoration-white/30 underline-offset-4 transition hover:text-white">
+          {T.hero.cta2.label}
+        </a>
+      </div>
     </div>
   </section>
 

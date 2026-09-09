@@ -8,6 +8,8 @@ export const HOME = {
   hero: {
     title: 'Roasted in the dark.',
     text: 'Small-batch beans, barista-grade creamers and the hardware behind a serious cup — sealed at peak aroma and shipped the same week.',
+    cta: { label: 'Get the theme on GitHub', href: SITE.repoUrl },
+    cta2: { label: 'All themes & Pro', href: SITE.themesUrl },
     image: { src: '/products/hero.jpg', alt: 'Pour-over brewing on a wooden counter in warm light' },
   },
   // 6 category tiles overlap the hero in a staggered 2-1-2-1 layout
