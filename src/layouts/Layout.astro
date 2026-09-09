@@ -793,5 +793,90 @@ const searchIndex = JSON.stringify(
       cartLines.subscribe(render);
       render();
     </script>
+
+    <!-- ── Demo device bar (demo-only — safe to delete this whole block in production) ── -->
+    <div data-pv-root>
+      <aside
+        data-pv-bar
+        class="fixed right-3 top-1/2 z-[95] hidden -translate-y-1/2 flex-col items-center gap-1 border border-line bg-paper/90 p-1.5 backdrop-blur md:flex"
+        aria-label="Preview controls"
+      >
+        <button type="button" data-pv-size="1920" title="Desktop · 1920" aria-label="Desktop 1920px" class="grid h-9 w-9 place-items-center border border-transparent text-muted transition hover:border-current hover:text-ink">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" /><path d="M8 21h8" /><path d="M12 17v4" /></svg>
+        </button>
+        <button type="button" data-pv-size="1440" title="Laptop · 1440" aria-label="Laptop 1440px" class="grid h-9 w-9 place-items-center border border-transparent text-muted transition hover:border-current hover:text-ink">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" /><path d="M2 19h20" /></svg>
+        </button>
+        <button type="button" data-pv-size="390" title="iPhone · 390" aria-label="Phone 390px" class="grid h-9 w-9 place-items-center border border-transparent text-muted transition hover:border-current hover:text-ink">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" /><path d="M11 18.5h2" /></svg>
+        </button>
+        <button type="button" data-pv-close hidden title="Exit preview" aria-label="Exit preview" class="grid h-9 w-9 place-items-center border border-transparent text-muted transition hover:border-current hover:text-ink">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </button>
+        <span class="my-0.5 h-px w-5 bg-line"></span>
+        <a href="https://github.com/njbSaab/astro-njx-dark-lux" target="_blank" rel="noopener" title="Star this free theme on GitHub" aria-label="Star this free theme on GitHub" class="grid h-9 w-9 place-items-center border border-transparent text-[#f5c518] transition hover:border-current">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+        </a>
+        <a href="https://njxui.dev/themes/dark-lux/" target="_blank" rel="noopener" title="Pro version — pricing & details" aria-label="Pro version pricing and details" class="grid h-9 w-9 place-items-center border border-transparent text-[11px] font-bold tracking-[0.08em] text-muted transition hover:border-current hover:text-ink">PRO</a>
+      </aside>
+
+      <div data-pv-overlay class="fixed inset-0 z-[90] hidden bg-[#0a0a0a]">
+        <div data-pv-wrap class="flex h-full justify-center overflow-hidden py-5">
+          <iframe data-pv-frame title="Responsive preview" class="h-full w-full border border-white/15 bg-white [transform-origin:top_center]"></iframe>
+        </div>
+        <div data-pv-badge class="absolute bottom-3 left-1/2 -translate-x-1/2 border border-white/20 bg-black/80 px-3.5 py-1.5 text-[11px] uppercase tracking-[0.22em] text-white/75"></div>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var root = document.querySelector('[data-pv-root]');
+        if (!root) return;
+        if (window.self !== window.top) { root.remove(); return; }
+        var overlay = root.querySelector('[data-pv-overlay]');
+        var frame = root.querySelector('[data-pv-frame]');
+        var badge = root.querySelector('[data-pv-badge]');
+        var closeBtn = root.querySelector('[data-pv-close]');
+        var buttons = [].slice.call(root.querySelectorAll('[data-pv-size]'));
+        var labels = { 1920: 'Desktop · 1920', 1440: 'Laptop · 1440', 390: 'iPhone · 390' };
+        var mode = null;
+
+        function apply() {
+          if (!mode) return;
+          var target = parseInt(mode, 10);
+          var wrap = root.querySelector('[data-pv-wrap]');
+          var scale = Math.min(1, (wrap.clientWidth - 16) / target);
+          frame.style.width = target + 'px';
+          frame.style.height = (wrap.clientHeight - 40) / scale + 'px';
+          frame.style.transform = scale < 1 ? 'scale(' + scale + ')' : '';
+          badge.textContent = labels[mode];
+        }
+        function close() {
+          mode = null;
+          overlay.classList.add('hidden');
+          closeBtn.hidden = true;
+          document.documentElement.style.overflow = '';
+          buttons.forEach(function (x) { x.classList.remove('border-brand', 'text-brand'); });
+          frame.src = 'about:blank';
+        }
+        buttons.forEach(function (b) {
+          b.addEventListener('click', function () {
+            if (mode === b.dataset.pvSize) { close(); return; }
+            mode = b.dataset.pvSize;
+            buttons.forEach(function (x) {
+              x.classList.toggle('border-brand', x === b);
+              x.classList.toggle('text-brand', x === b);
+            });
+            if (frame.src === '' || frame.src === 'about:blank') frame.src = window.location.href;
+            overlay.classList.remove('hidden');
+            closeBtn.hidden = false;
+            document.documentElement.style.overflow = 'hidden';
+            apply();
+          });
+        });
+        closeBtn.addEventListener('click', close);
+        window.addEventListener('resize', apply);
+      })();
+    </script>
   </body>
 </html>
