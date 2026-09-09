@@ -1,5 +1,7 @@
 # astro-njx-dark-lux — monochrome dark-luxury ecommerce theme for Astro
 
+> Part of **[njX Astro Themes](https://njxui.dev/themes)** — ecommerce storefronts & landing pages by one author, free today, Pro versions on the way.
+
 A complete storefront built with **Astro 5 + Tailwind CSS v4** in a pure-monochrome
 dark-luxury design system: hairline borders that light up on hover, zero border-radius,
 wide letter-spacing, quick-view popups — wired for **Shopify** out of the box and
