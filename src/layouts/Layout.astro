@@ -832,7 +832,17 @@ const searchIndex = JSON.stringify(
       (function () {
         var root = document.querySelector('[data-pv-root]');
         if (!root) return;
-        if (window.self !== window.top) { root.remove(); return; }
+        if (window.self !== window.top) {
+          root.remove();
+          // inside a preview iframe: external links (GitHub etc.) refuse framing — open them in a new tab
+          document.addEventListener('click', function (e) {
+            var a = e.target.closest && e.target.closest('a[href]');
+            if (!a) return;
+            var url; try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+            if (url.origin !== location.origin) { e.preventDefault(); window.open(url.href, '_blank', 'noopener'); }
+          });
+          return;
+        }
         var overlay = root.querySelector('[data-pv-overlay]');
         var frame = root.querySelector('[data-pv-frame]');
         var badge = root.querySelector('[data-pv-badge]');
