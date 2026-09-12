@@ -1,5 +1,7 @@
 # astro-njx-dark-lux — monochrome dark-luxury ecommerce theme for Astro
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/njbSaab/astro-njx-dark-lux) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/njbSaab/astro-njx-dark-lux)
+
 > Part of **[njX Astro Themes](https://njxui.dev/themes)** — ecommerce storefronts & landing pages by one author, free today, Pro versions on the way.
 
 A complete storefront built with **Astro 5 + Tailwind CSS v4** in a pure-monochrome
